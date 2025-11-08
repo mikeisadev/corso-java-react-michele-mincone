@@ -83,7 +83,8 @@ Quindi con i segni il numero massimo o minimo è più piccolo, ma in senso assol
 da quello negativo più piccolo a quello positivo più grande, abbiamo sempre, come conteggio finale 4 294 967 295.
          
 Ripetendo il concetto, con 64 bit possiamo rappresentare numeri molto più grandi.
-         
+
+# Il linguaggio binario e Java (linguaggio comprensibile a noi)
 Noi nel corso Java scriveremo in linguaggio simile a quello umano.
 
 Quindi con Java, ma come in tanti altri linguaggi, scriviamo in un linguaggio familiare a quello umano e
