@@ -13,6 +13,8 @@ public class JavaScanner {
      */
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
+
+        System.out.print("Inserisci il tuo nome: ");
 		
 		String nome = input.nextLine();
 		
