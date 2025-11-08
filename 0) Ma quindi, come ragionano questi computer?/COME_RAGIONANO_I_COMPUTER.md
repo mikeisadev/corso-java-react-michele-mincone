@@ -94,9 +94,10 @@ Per cui, NON scriviamo in binario, sarebbe una follia.
 Ma scriviamo in Java, quindi in un linguaggio comprensibile a noi umani, per poi compilare ed eseguire quel codice
 in linguaggio binario o codice macchina.
          
-Quindi scriviamo codice Java, per arrivare a dare al computer 0 e 1.
+Quindi scriviamo codice Java, per poi dare al computer una sequenza lunghissima di 0 e 1 da eseguire come istruzioni.
          
-In questo file vedremo i tipi di dati per dichiarare delle variabili.
+Ad esempio, i tipi di dati che vedremo (o che abbiamo visto) in Java, quando dichiariamo delle variabili, non saranno 
+nient'altro che sequenze di 0 e di 1 (che per noi erano assegna questo valore a questa variabile con questo tipo di dato).
          
 Le variabili possiamo immaginarle come contenitori all'interno dei quali ho informazioni.
          
@@ -111,7 +112,10 @@ I tipi di dati in Java si dividono in due famiglie:
 - tipi di dati primitivi
 - tipi di dato non-primitivi o di riferimento (quindi che fanno riferimento a classi)
          
-Poi vedremo cosa comporta questo a livello di memoria e di gestione della memoria (introducendo
+Poi vedremo cosa comporta questo a livello di memoria e di e della sua gestione (introducendo
 la spiegazione su "stack e heap" e che i tipi di dato di riferimento o NON primitivi creano delle istanze di classe).
+
+Nonostante nel linguaggio Java abbiamo tutte queste regole che noi umani comprendiamo, alla fine il computer potrà eseguire solo
+una sequenza di 0 e 1 che conterranno le istruzioni o i dati fondamentali.
          
 Buono studio dal vostro docente Michele!
