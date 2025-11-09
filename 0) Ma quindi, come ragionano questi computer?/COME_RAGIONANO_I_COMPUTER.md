@@ -84,7 +84,81 @@ da quello negativo più piccolo a quello positivo più grande, abbiamo sempre, c
          
 Ripetendo il concetto, con 64 bit possiamo rappresentare numeri molto più grandi.
 
-# Il linguaggio binario e Java (linguaggio comprensibile a noi)
+Prova a scrivere sulla calcolatrice:
+2<sup>64</sup> (2 elevato alla 64esima)
+
+Il numero che vedrai sarà negli ordini dei *miliardi dei miliardi*:
+1.84 x 10<sup>19</sup>
+
+(oppure 1,84467440737E19)
+
+Oppure ancora, scritto per esteso:
+18.446.744.073.709.551.615
+
+Quindi in un sistema a 64 bit posso rappresentare 2<sup>64</sup> combinazioni di 0 e 1.
+
+Ma qual'è il numero massimo che posso rappresentare considerando lo zero? Quindi da quale numero parto?
+
+La risposta è:
+2<sup>64</sup> - 1
+
+I sistemi a 64 bit, potendo rappresentare ordini di grandezza molto elevati:
+- possono gestire quantità di memoria RAM molto maggiori rispetto ai sistemi a 32 bit
+- possono gestire quantità di dati molto maggiori per ciclo di clock della CPU e in modo più efficiente
+- il multitasking è più esteso (più task) e più efficiene
+- maggiore sicurezza a livello software (driver signature) e a livello hardware (hardware data execution o DEP: Data Execution Prevention)
+- maggiori performance durante l'esecuzione di software complessi, AI, videogiochi o elaborazione di grandi quantità di dati
+
+# Ordini di grandezza: 8 bit sono equivalenti a? E poi?
+Per rendere più leggibile la lettura in bit di grandi quantità di dati è possibile usare vari ordini di grandezza.
+
+Ma partiamo dall'ordine di grandezza basilare che raggruppa il numero minimo di bit, ovvero: il *BYTE*.
+
+Se è vero che 0 e 1 sono l'unità minima di rappresentazione dei dati e che rappresentano 1 bit, è vero anche che su un computer ho tantissimi dati e quindi tantissimi, ma veramente tanti, bit.
+
+L'ordine di grandezza che ho citato poco fa, ovvero il Byte, è uguale a 8 bit.
+
+Quindi:
+1 byte = 8 bit.
+
+Fin ora ho parlato di sistemi a 32 bit e 64 bit, in Byte sono traducibili in:
+- 32 bit = 4 byte 
+- 64 bit = 8 byte
+
+Al contrario:
+- 4 byte = 4 byte * 8 = 32 bit
+- 8 byte = 8 byte * 8 = 64 bit
+
+Quindi risulta più comodo usare l'unità di grandezza del byte per rappresentare tanti bit.
+
+Ma poco fa ho detto che il computer ha veramente moltissimi dati: GB (GigaByte) di dati, se non TB (TeraByte) di dati.
+
+Scarico programmi e si aggiungono diversi MB (MegaByte) di dati sul mio computer, e perché no, anche potenzialmente GB (GygaBytes) di dati, ritrovandomi a occupare TB (TeraByte) di dati.
+
+Oppure posso occupare spazio con KB (KyloByte) di dati o documenti molto piccoli di B (Bytes).
+
+Quindi, ecco a te tutti gli ordini di grandezza in relazione col Byte:
+
+- 1 bit (b)             (unità fondamentale)
+- 1 byte (B) = 8 bit      
+- 1 kilobyte (KiB) = 1024 byte (8192 bit)
+- 1 megabyte (MiB) = 1024 kilobyte (8.388.608 bit)
+- 1 gigabyte (GiB) = 1024 megabyte = 1.048.576 kilobyte (8.589.934.592 bit)
+- 1 terabyte (TiB) = 1024 gigabyte
+- 1 petabyte (PiB) = 1024 terabyte
+- 1 exabyte (EiB) = 1024 petabyte
+- 1 zettabyte (ZiB) = 1024 exabyte
+- 1 yottabyte (YiB) = 1024 zettabyte
+
+*Nota*: Questo schema usa la base binaria (1024), tradizionale in informatica. 
+Esiste anche la base decimale (1000) del Sistema Internazionale:
+- 1 KB (decimale) = 1000 byte (o unità del Sistema Internazionale (SI))
+- 1 KiB (binario) = 1024 byte (nel sistema binario)
+
+I produttori di hard disk spesso usano la base decimale (ecco perché un disco 
+da "1 TB" mostra ~931 GB nel sistema operativo: 1000 vs 1024).
+
+# Il linguaggio binario e Java (linguaggio leggibile da noi)
 Noi nel corso Java scriveremo in linguaggio simile a quello umano.
 
 Quindi con Java, ma come in tanti altri linguaggi, scriviamo in un linguaggio familiare a quello umano e
