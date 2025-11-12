@@ -1,5 +1,9 @@
 # Come ragionano i computer, i bit, il byte e i moderni sistemi a 32 bit e 64 bit
 
+## Titolo piccolo
+
+### titolo ancor più piccolo
+
 *Autore*: Michele Mincone - 7 novembre 2025 ore 20:15
          
 Ripassiamo al volo, in modo semplice e con esempi come ragionano i computer.
