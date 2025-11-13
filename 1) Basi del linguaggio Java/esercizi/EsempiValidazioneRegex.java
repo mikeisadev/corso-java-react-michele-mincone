@@ -9,6 +9,9 @@ public class EsempiValidazioneRegex {
 	 * https://gist.github.com/jacksonfdam/3000275
 	 * 
 	 * NOTA: Non imparare a memoria REGEX.
+	 * 
+	 * LEGENDA:
+	 * - RegEx sta per = Regular Expression = espresione regolare
 	 */
 	
 	// INPUT UTENTE DI ESEMPIO.
