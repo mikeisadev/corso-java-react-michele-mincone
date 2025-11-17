@@ -1,6 +1,11 @@
+package eserciziSvolti;
+
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Primo esercizio sul ValidatoreEmail
+ */
 public class ValidatoreEmail {
 	
 	private static final List<String> VALID_DOMAINS = Arrays.asList(
