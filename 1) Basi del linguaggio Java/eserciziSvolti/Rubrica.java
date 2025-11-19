@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.List;
 
-public class RubricaNormale {
+public class Rubrica {
 	
 	private static Map<String, String> rubrica = new HashMap<>();
 	
