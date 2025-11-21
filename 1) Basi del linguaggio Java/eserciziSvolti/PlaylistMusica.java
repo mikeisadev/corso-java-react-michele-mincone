@@ -11,6 +11,8 @@ import java.util.Set;
 public class PlaylistMusica {
 	
 	private static Map<String, List<String>> playlist = new HashMap<>();
+	
+	private static Map<String, List<String>> risultatiRicerca = new HashMap();
 		
 	public static void main(String[] args) {
 		/**
@@ -30,7 +32,7 @@ public class PlaylistMusica {
 		aggiungiCanzone("Linkin Park", "In The End", "03:54");
 		aggiungiCanzone("Black Sabbath", "Pig wars", "05:12");
 		aggiungiCanzone("Eagles", "Hotel California", "06:45");
-		aggiungiCanzone("Nirvana", "Something in the way", "03:13");
+		aggiungiCanzone("Nirvana", "Something in the way", "03:11");
 		
 //		stampaPlayList();
 //		
@@ -45,6 +47,8 @@ public class PlaylistMusica {
 		shuffle();
 		
 		calcolaDurataPlaylist();
+		
+		cercaCanzone("He");
 	}
 	
 	public static void aggiungiCanzone(String artista, String titolo, String durata) {
@@ -113,12 +117,37 @@ public class PlaylistMusica {
 		}
 	}
 	
+	public static void cercaCanzone(String intentoRicerca) {
+		risultatiRicerca.clear();
+		
+		// Effettuo la ricerca nella mappa
+		for (String artista : playlist.keySet()) {
+			List<String> canzone = playlist.get(artista);
+			
+			String titoloCanzone = canzone.get(0);
+						
+			if (titoloCanzone.toLowerCase().contains(intentoRicerca.toLowerCase())) {
+				risultatiRicerca.put(artista, canzone);
+			}
+		}
+		
+		System.out.println("\n\nRisultati di rierca per '" + intentoRicerca + "': \n");
+		
+		// Stampo nella console i risultati
+		for (String artista : risultatiRicerca.keySet()) {
+			List<String> canzone = playlist.get(artista);
+			
+			if (canzone.size() == 0) {
+				System.out.println(artista + " | N\\A");
+			} else {
+				System.out.println(artista + " | " + canzone.get(0) + " - " + canzone.get(1));
+			}
+		}
+	}
+	
 	public static void calcolaDurataPlaylist() {
-		/**
-		 * Calcolo il totale della durata in secondi.
-		 */
-		double durataTot = 0;
-		// double durataTotD = 0;
+		// Calcolo il totale della durata in secondi.
+		int durataTot = 0;
 		
 		for (String artista : playlist.keySet()) {
 			List<String> canzone = playlist.get(artista);
@@ -131,7 +160,6 @@ public class PlaylistMusica {
 			Integer secondi = Integer.parseInt(durataArr[1]);
 			
 			durataTot += (minuti + secondi);
-			//durataTotD += (minuti + secondi);
 		}
 		
 		System.out.println("\n\nDurata totale playlist in secondi: " + durataTot + " s(econdi)");
@@ -139,23 +167,86 @@ public class PlaylistMusica {
 		/**
 		 * Converto il totale da secondi a minuti
 		 */
-		String numberFormat = String.format("%.2f", durataTot / 60.00);
 		
-//		2099.00
-//		2099.00 / 60
-//		
-//		minuti (34)
-//		0,98
+		/**
+		 * Il calcolo commentato qui sotto è sbagliato in fatto di precisione
+		 * dei numeri decimali, bisogna preferire il cacolo dopo i commenti.
+		 * 
+		 * Questo calcolo commentato si trascina dietro un errore di circa:
+		 * +- 0,036666666 / 0,0266666 secondi di errore
+		 */
+		// String numberFormat = String.format("%.2f", durataTot / 60.00);
+		//		
+		// String[] numberFormatArr = numberFormat.split(",");
+		//		
+		// int durataIntero = Integer.parseInt(numberFormatArr[0]);
+		// double durataSecondiDecimale = (double) Integer.parseInt(numberFormatArr[1]);
+		//	
+		// int durataSecondi = (int) (Math.floor((durataSecondiDecimale/100.00)) * 60.00);
 		
-		String[] numberFormatArr = numberFormat.split(",");
+		// Versione corretta del calcolo in minuti:secondi (mm:ss)
+		int durataMinuti = durataTot / 60;
+		int durataSecondi = durataTot % 60; // prendo il resto della divisione durata
 		
-		int durataIntero = Integer.parseInt(numberFormatArr[0]);
-		double durataSecondiDecimale = (double) Integer.parseInt(numberFormatArr[1]);
+		System.out.println(
+				"Calcolo semplificato " + String.format("%d : %02d", durataMinuti, durataSecondi)
+		);
 		
+	}
+	
+	/**
+	 * Metodo avanzato facoltativo.
+	 */
+	public static void soluzioneComplessaSecondiAMinuti() {
+		/**
+		 * Calcolo la durata totale in secondi
+		 */
+		int durataTot = 0;
 		
-		int durataSecondi = (int) (Math.floor((durataSecondiDecimale/100.00)) * 60.00);
+		for (String artista : playlist.keySet()) {
+			List<String> canzone = playlist.get(artista);
+			
+			String durataCanzone = canzone.get(1);
+			
+			String[] durataArr = durataCanzone.split(":");
+			
+			Integer minuti = Integer.parseInt(durataArr[0]) * 60;
+			Integer secondi = Integer.parseInt(durataArr[1]);
+			
+			durataTot += (minuti + secondi);
+		}
 		
-		System.out.println(durataIntero + ":" + durataSecondi);
+		/**
+		 * Converto tutto in minuti:secondi usando un metodo
+		 * più avanzato.
+		 */
+		int c = durataTot;
+		int minuti = 0;
+		int resto = 0;
+		
+		for (int i = 0; i < durataTot; i++) {
+			if (i % 60 == 0) {
+				minuti++;
+			}
+			
+			if (c <= 60) {
+				resto = c;
+				minuti--;
+				
+				if (c == 60) {
+					minuti++;
+					resto = 0;
+				}
+				
+				break;
+			}
+			
+			c--;
+		}
+		
+		System.out.println(
+				"Calcolo a mano della conversione: " + String.format("%d : %02d", minuti, resto)
+		);
 	}
 
 }
